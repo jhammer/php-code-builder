@@ -15,6 +15,7 @@ class PhpDoc extends PhpTemplate
     const TAG_SEE = 'see';
     const TAG_CODE_COVERAGE_IGNORE_START = 'codeCoverageIgnoreStart';
     const TAG_CODE_COVERAGE_IGNORE_END = 'codeCoverageIgnoreEnd';
+    const TAG_PSALM_SUPPRESS = 'psalm-suppress';
 
     /** @var PhpDocTag[] */
     private $tags = array();

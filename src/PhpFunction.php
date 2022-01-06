@@ -27,6 +27,7 @@ class PhpFunction extends PhpTemplate
     private $body;
     protected $outputArgumentsWithDefaults = true;
     public $skipCodeCoverage = false;
+    public $psalmSuppress = [];
 
 
     /**
@@ -92,6 +93,9 @@ PHP;
         }
         if ($this->skipCodeCoverage) {
             $result->add(PhpDoc::TAG_CODE_COVERAGE_IGNORE_START);
+        }
+        foreach ($this->psalmSuppress as $issue) {
+            $result->add(PhpDoc::TAG_PSALM_SUPPRESS, $issue);
         }
         return (string)$result;
     }

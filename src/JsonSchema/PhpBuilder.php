@@ -149,6 +149,7 @@ class PhpBuilder
         $setupProperties
             ->addArgument(new PhpNamedVar('properties', Palette::propertiesClass()))
             ->addArgument(new PhpNamedVar('ownerSchema', Palette::schemaClass()));
+        $setupProperties->psalmSuppress[] = 'NoInterfaceProperties';
 
         $body = new PhpCode();
 
