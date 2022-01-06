@@ -27,6 +27,7 @@ use Swaggest\PhpCodeBuilder\Property\PatternPropertiesGetter;
 use Swaggest\PhpCodeBuilder\Property\PatternPropertySetter;
 use Swaggest\PhpCodeBuilder\Property\Setter;
 use Swaggest\PhpCodeBuilder\Types\TypeOf;
+use Swaggest\PhpCodeBuilder\Types\OrType;
 
 class PhpBuilder
 {
@@ -198,7 +199,11 @@ class PhpBuilder
                 }
 
                 if ($this->schemaIsNullable($property)) {
-                    $phpProperty->setIsMagical(true);
+//                    $phpProperty->setIsMagical(true);
+                    $or = new OrType();
+                    $or->add($phpProperty->getNamedVar()->getType());
+                    $or->add(PhpStdType::null());
+                    $phpProperty->getNamedVar()->setType($or);
                 }
 
                 if ($property->description) {
