@@ -21,15 +21,12 @@ class Palette
         return $instance;
     }
 
-    public static function propertiesOrStaticClass()
+    public static function propertiesClass()
     {
         static $instance;
         if (null === $instance) {
-            $class = new PhpClass();
-            $class->setFullyQualifiedName(get_class(new Properties()));
-            $instance = new OrType();
-            $instance->add($class);
-            $instance->add(PhpDocType::staticType());
+            $instance = new PhpClass();
+            $instance->setFullyQualifiedName(get_class(new Properties()));
         }
         return $instance;
     }

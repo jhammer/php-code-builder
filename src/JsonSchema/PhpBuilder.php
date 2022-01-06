@@ -147,7 +147,7 @@ class PhpBuilder
             ->setVisibility(PhpFlags::VIS_PUBLIC)
             ->setIsStatic(true);
         $setupProperties
-            ->addArgument(new PhpNamedVar('properties', Palette::propertiesOrStaticClass()))
+            ->addArgument(new PhpNamedVar('properties', Palette::propertiesClass()))
             ->addArgument(new PhpNamedVar('ownerSchema', Palette::schemaClass()));
 
         $body = new PhpCode();
